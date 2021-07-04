@@ -1,0 +1,44 @@
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+    <link rel='stylesheet' href='/stylesheets/reset.css' />
+    <link rel='stylesheet' href='/stylesheets/login.css' />
+</head>
+
+<body>
+    <div class="login_form">
+        <img src="/images/logo/logo_transparent.png" alt="logo" style="width: 300px;">
+        <div>
+            <form action="/auth/login" method="POST">
+                <div class="int_area">
+                    <input type="text" name="userId" id="id" autocomplete="off" required="">
+                    <label for="id">아이디</label>
+                </div>
+                <div class="int_area">
+                    <input type="password" name="password" id="pw" autocomplete="off" required="">
+                    <label for="id">비밀번호</label>
+                </div>
+                <div class="btn_area">
+                    <button type="submit">로그인</button>
+                </div>
+            </form>
+            <!-- <div class="caption">
+                <a href="/">비밀번호 찾기</a>
+            </div> -->
+        </div>
+        <div class="btn_container">
+            <div class="start_btn">
+                <a href="/"><button type="button"><p>둘러보기</p></button></a>
+            </div>
+            <div class="register_btn">
+                <a href="/auth/register"><button type="button"><p>회원가입</p></button></a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
