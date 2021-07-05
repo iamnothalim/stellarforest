@@ -1,0 +1,27 @@
+.itemlist_wrapper{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    text-align: center;
+    width: 100%;
+}
+
+.item_wrapper{
+    flex: 1 1 30%;
+    width: 350px;
+    height: 400px;
+    margin-bottom: 50px;
+}
+
+.item_wrapper li:first-child{
+    margin-bottom: 5px;
+}
+.item_wrapper li{
+    margin-bottom: 10px;
+}
+
+.item_img img{
+    width: 350px;
+    height: 350px;
+}

@@ -1,0 +1,23 @@
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>shopping</title>
+    <link rel='stylesheet' href='/stylesheets/reset.css'/>
+    <link rel="stylesheet" href="/stylesheets/itemlist.css">
+</head>
+<body>
+    <p>쇼핑몰</p>
+    <div class="itemlist_wrapper">
+        <% itemInfo.forEach(function(el){ %>
+            <ul class="item_wrapper">
+                <li class="item_img"><img src="/images/itemlist/<%= el.imgUrl %>"></li>
+                <li class="item_name"><%= el.name %> </li>
+                <li class="item_price"><%= el.price %>원</li>
+                <li class="item_disc"><%= el.disc %> </li>
+            </ul>
+        <% }) %> 
+    </div>
+</body>
+</html>
