@@ -6,6 +6,14 @@
     <title>admin</title>
 </head>
 <body>
-    <div><%= data %> </div>
+    <div>seed 5000</div>
+    <% if(data.length != 0){ %>
+        <% data.forEach((item, index)=>{ %>
+            <li><%= item.userId %> <%= item.seed %> <%= item.name %></li>
+            <a href="/admin/<%= item.address %>"><input type="button" value="10 hashroot 보내기"></a>
+        <% }) %>
+    <% } %> 
+    <div>채굴 버튼</div>
+    <a href="/admin/generate"><input class = "generate" type="button" value = "50 STW 채굴하기"></a>
 </body>
 </html>
