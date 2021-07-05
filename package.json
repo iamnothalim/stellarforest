@@ -13,6 +13,7 @@
     "http-errors": "~1.6.3",
     "mariadb": "^2.5.4",
     "morgan": "~1.9.1",
-    "nodemon": "^2.0.9"
+    "nodemon": "^2.0.9",
+    "request": "^2.88.2"
   }
 }

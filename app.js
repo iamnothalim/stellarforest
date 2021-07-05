@@ -6,6 +6,7 @@ const logger = require('morgan');
 
 const indexRouter = require('./routes/index');
 const authRouter = require('./routes/auth');
+const myforestRouter = require('./routes/myforest');
 
 const app = express();
 
@@ -21,6 +22,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/auth', authRouter);
+app.use('/myforest', myforestRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -40,6 +42,6 @@ app.use(function(err, req, res, next) {
 
 
 app.listen(3000, function () {  
-  console.log(' running at http://localhost:3000/');
+  console.log(' running at http://localhost:3001/');
 });
 module.exports = app;
