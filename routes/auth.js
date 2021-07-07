@@ -48,7 +48,7 @@ router.post('/login', async function (req, res) {
                 req.session.loggedin = true;
                 req.session.userid = req.body.userId;
                 req.session.save(()=>{
-                    res.redirect('/')
+                    res.redirect('/');
                 })
             }
         }
