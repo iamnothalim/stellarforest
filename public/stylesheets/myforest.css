@@ -9,26 +9,42 @@ header {
     width: 140px;
 }
 .tree {
-    height: 300px;
-    width: 600px;
+    height: 100%;
+    width: 100%;
     float: left;
+	position: relative;
+	z-index: -100;
 }
 .icon { 
     display: inline-block;
     float: right;
 }
 
+.moretab{
+	position: absolute;
+	color: white;
+	font-weight: bold;
+	font-size: 20px;
+	left:50%; 
+	transform:translateX(-50%);
+	padding-top: 20px;
+}
+
+.mymore{
+	display: inline-block;
+	padding-right: 20px;
+}
 
 a{
     text-decoration: none;
-    color: black;
+	color: white;
+	font-weight: bold;
+	font-size: 20px;
 }
 
-
 .myseed{
-	font-size: 14px;
-	line-height: 26px;
 	cursor: default;
+	float: right;
 }
 .myseed:before{
     font-weight: bold;
@@ -46,14 +62,15 @@ a{
 	text-align: left;
 	background-color: #1E2021;
 	padding: 20px;
-	width: 300px;
+	width: 200px;
 	position: absolute;
 	border-radius: 3px;
 	box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
-	right: 150px;  
 	color: #FFF;
 	font-size: 13px;
 	line-height: 1.4;
+	left:45%; 
+	transform:translateX(-45%);
 }
 .myseed p:before{
 	position: absolute;
@@ -73,6 +90,13 @@ a{
 	top:-40px;
 	left:0;
 }
+
+.mainslogan{
+	margin-top: 50%;
+	width: 100%;
+	font-size: 30px;
+
+}
 @-webkit-keyframes fadeIn {
 	0% { 
 		opacity:0; 
@@ -86,4 +110,5 @@ a{
 @keyframes fadeIn {
 	0% { opacity:0; }
 	100% { opacity:100%; }
-}​
+}
+​

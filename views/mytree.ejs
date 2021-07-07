@@ -1,19 +1,51 @@
-<html lang="en">
+<html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="no-referrer" />
     <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/reset.css">
+    <link rel='stylesheet' href='/stylesheets/mytree.css' />
 </head>
-<body>
-    내나무정보
 
-    <!-- 지금까지생성한 블록보여주기  -->
-    <form action="getblockcount_result" method="post">
-        <input type="submit" value="getblockcount">
-    </form>
-    지금까지 심은 나무는 <%= data %>
-  
+<body>
+    <header>
+        <img class="logo" src="/img/별숲1.png">
+        <div class="icon">돋보기</div>
+        <div class="icon">장바구니</div>
+        <div class="icon">로그인마크</div>
+    </header>
+    <img class="tree" src="/img/나무1.jpg">
+    
+    <div class="mytreeinfo">
+        <div class="mymore"><a href="/myforest/mytree">내나무</a></div>
+        <div class="mymore"><a href="/myforest/myinfo">내정보</a></div>
+        <br><br>
+        <div class="mytreetitle">내나무정보</div>
+        <br>
+        <!-- 지금까지생성한 블록보여주기  -->
+        <div>지금까지 심어진 "전체"나무는 <%= blockcount %>그루 </div>
+        <div>전체"나무는 -> 추후에 listtransaction treecount로 변경예정 </div>
+        <div> 나의 지분이 있는 나무는 <%= myblock %> 그루 </div>
+        <br><br><br>
+        <div> 나무가 심어진 시간 </div>
+        <div> 나무가 있는 위치 </div>
+        <br><br><br>
+        <div> 내가 보유한 나무 블록의 해시값</div>
+        <% mytransaction.forEach((hash,index)=> { %>
+            <div>
+                <%= hash.blockhash %>
+            </div>
+            <% })%>
+                <div>같은블록에 어차피 하나의 트랜잭션만 들어갈것이기 때문에 상관없음 </div>
+    </div>
+
+
+
+
 
 </body>
+
 </html>

@@ -1,0 +1,52 @@
+header {
+    border: 1px solid red;
+}
+
+.logo{
+    height: 70px;
+    width: 140px;
+}
+
+.tree {
+    height: 100%;
+    width: 100%;
+    float: left;
+	position: relative;
+	z-index: -100;
+}
+.icon { 
+    display: inline-block;
+    float: right;
+}
+
+.mytreeinfo{
+    text-align: left;
+    position: absolute;
+	color: white;
+	font-weight: bold;
+	font-size: 20px;
+	/* left:50%;  */
+	/* transform:translateX(-50%); */
+	padding-top: 20px;
+}
+
+.mytreetitle{
+    font-size: 30px;
+    font-weight: bold;
+}
+.mymore{
+	display: inline-block;
+	padding-right: 20px;
+    text-align: center;
+}
+
+a{
+    text-decoration: none;
+	color: white;
+	font-weight: bold;
+	font-size: 20px;
+}
+
+.infolist{
+    margin-top: 150px;
+}

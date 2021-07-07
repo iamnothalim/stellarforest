@@ -1,11 +1,41 @@
-<html lang="en">
+<html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="referrer" content="no-referrer" />
+    <title>Myforest</title>
+    <link rel="stylesheet" href="/stylesheets/reset.css">
+    <link rel='stylesheet' href='/stylesheets/mytree.css' />
 </head>
+
 <body>
-    내정보
+    <header>
+        <img class="logo" src="/img/별숲1.png">
+        <div class="icon">돋보기</div>
+        <div class="icon">장바구니</div>
+        <div class="icon">로그인마크</div>
+    </header>
+    <img class="tree" src="/img/나무1.jpg">
+    <div>
+        <div class="mytreeinfo">
+            <div class="mymore"><a href="/myforest/mytree">내나무</a></div>
+            <div class="mymore"><a href="/myforest/myinfo">내정보</a></div>
+
+            <div class="infolist">
+                <div>내 아이디</div>
+                <%= user%>
+                    <div>내 이름</div>
+                    <%= name%>
+                        <div>내 지갑주소</div>
+                        <%= address%>
+                            <div>내 보유시드</div>
+                            <%= seed%>
+            </div>
+        </div>
+
+    </div>
 </body>
+
 </html>

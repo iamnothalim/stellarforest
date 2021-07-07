@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const client = require('../mariadb');
+const client = require('../lib/mariadb');
 const dotenv = require('dotenv');
 const log = console.log();
 dotenv.config();

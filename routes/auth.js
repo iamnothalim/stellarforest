@@ -17,8 +17,8 @@ const USER = process.env.RPC_USER;
 const PASS = process.env.RPC_PASSWORD;
 
 //const PORT = 9708; // hashroot
-const PORT = 9612; // jemerald
 //const ID_STRING = "hashroot";
+const PORT = 9612; // jemerald
 const ID_STRING = "jemerald";
 const headers = {
     "content-type": "text/plain;"
