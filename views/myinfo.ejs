@@ -17,21 +17,21 @@
         <div class="icon">장바구니</div>
         <div class="icon">로그인마크</div>
     </header>
-    <img class="tree" src="/img/나무1.jpg">
+
     <div>
         <div class="mytreeinfo">
             <div class="mymore"><a href="/myforest/mytree">내나무</a></div>
             <div class="mymore"><a href="/myforest/myinfo">내정보</a></div>
 
             <div class="infolist">
-                <div>내 아이디</div>
-                <%= user%>
-                    <div>내 이름</div>
-                    <%= name%>
-                        <div>내 지갑주소</div>
-                        <%= address%>
-                            <div>내 보유시드</div>
-                            <%= seed%>
+                <div class="mytreetitle">내 정보</div>
+                <div class="myinfotitle">내 아이디: <%= user%>
+                </div>
+                <div class="myinfotitle">내 이름: <%= name%>
+                </div>
+                <div class="myinfotitle">내 지갑주소: <%= address%>
+                </div>
+                <div class="myinfotitle">내 보유시드: <%= seed%>seeds (5000시드이상 환전가능)</div>
             </div>
         </div>
 

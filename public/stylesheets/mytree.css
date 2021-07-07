@@ -1,5 +1,5 @@
 header {
-    border: 1px solid red;
+    border: 1px solid black;
 }
 
 .logo{
@@ -21,32 +21,54 @@ header {
 
 .mytreeinfo{
     text-align: left;
-    position: absolute;
+    /* position: absolute; */
 	color: white;
 	font-weight: bold;
 	font-size: 20px;
-	/* left:50%;  */
-	/* transform:translateX(-50%); */
 	padding-top: 20px;
 }
 
 .mytreetitle{
     font-size: 30px;
     font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.totaltree{
+    text-align: center;
+    margin: 15px 15px;
+}
+.myaccounttree{
+    margin: 15px 0;
+}
+.mytreehash{
+    margin: 15px 0;
 }
 .mymore{
 	display: inline-block;
 	padding-right: 20px;
     text-align: center;
+    margin-left: 50px;
 }
 
 a{
     text-decoration: none;
-	color: white;
+	color: black;
 	font-weight: bold;
 	font-size: 20px;
 }
 
 .infolist{
     margin-top: 150px;
+    /* background-color: gray; */
+    background-color: rgba(0,0,0,0.8);
+    border-radius: 10px;
+    padding: 50px 50px;
+    margin-left: 20%; 
+    margin-right: 20%;
+    /* width: 100%; */
+}
+
+.myinfotitle{
+margin: 15px 0;
 }

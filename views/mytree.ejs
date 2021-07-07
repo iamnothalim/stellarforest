@@ -17,29 +17,28 @@
         <div class="icon">장바구니</div>
         <div class="icon">로그인마크</div>
     </header>
-    <img class="tree" src="/img/나무1.jpg">
-    
+
+
     <div class="mytreeinfo">
         <div class="mymore"><a href="/myforest/mytree">내나무</a></div>
         <div class="mymore"><a href="/myforest/myinfo">내정보</a></div>
-        <br><br>
-        <div class="mytreetitle">내나무정보</div>
-        <br>
-        <!-- 지금까지생성한 블록보여주기  -->
-        <div>지금까지 심어진 "전체"나무는 <%= blockcount %>그루 </div>
-        <div>전체"나무는 -> 추후에 listtransaction treecount로 변경예정 </div>
-        <div> 나의 지분이 있는 나무는 <%= myblock %> 그루 </div>
-        <br><br><br>
-        <div> 나무가 심어진 시간 </div>
-        <div> 나무가 있는 위치 </div>
-        <br><br><br>
-        <div> 내가 보유한 나무 블록의 해시값</div>
-        <% mytransaction.forEach((hash,index)=> { %>
-            <div>
-                <%= hash.blockhash %>
-            </div>
-            <% })%>
-                <div>같은블록에 어차피 하나의 트랜잭션만 들어갈것이기 때문에 상관없음 </div>
+
+        <div class="infolist">
+            <div class="mytreetitle">내 나무</div>
+            <!-- 지금까지생성한 블록보여주기  -->
+            <div class="totaltree">총 나무 <%= blockcount %>그루 </div>
+            <!-- <div>전체"나무는 -> 추후에 listtransaction treecount로 변경예정 </div> -->
+            <div class="myaccounttree"> 나의 지분이 있는 나무: <%= myblock %> 그루 </div>
+            <!-- <div> 나무가 심어진 시간 </div>
+            <div> 나무가 있는 위치 </div> -->
+            <div class="mytreehash"> 내가 보유한 나무 블록의 해시값:</div>
+            <% mytransaction.forEach((hash,index)=> { %>
+                <div>
+                    <%= hash.blockhash %>
+                </div>
+                <% })%>
+            <!-- <div>같은블록에 어차피 하나의 트랜잭션만 들어갈것이기 때문에 상관없음 </div> -->
+        </div>
     </div>
 
 
