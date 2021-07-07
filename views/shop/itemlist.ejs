@@ -4,20 +4,101 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>shopping</title>
+    <script src="/javascripts/jquery-3.5.1.min.js"></script>
     <link rel='stylesheet' href='/stylesheets/reset.css'/>
     <link rel="stylesheet" href="/stylesheets/itemlist.css">
 </head>
 <body>
     <p>쇼핑몰</p>
-    <div class="itemlist_wrapper">
-        <% itemInfo.forEach(function(el){ %>
-            <ul class="item_wrapper">
-                <li class="item_img"><img src="/images/itemlist/<%= el.imgUrl %>"></li>
-                <li class="item_name"><%= el.name %> </li>
-                <li class="item_price"><%= el.price %>원</li>
-                <li class="item_disc"><%= el.disc %> </li>
+    <div class="container">
+        <div class="category_wrapper" id="tab_btn">
+            <ul>
+                <li class="active"><a href="#">쓰레기 최소화</a></li>
+                <li><a href="#">새활용</a></li>
+                <li><a href="#">생분해성</a></li>
             </ul>
-        <% }) %> 
+        </div>
+        <div id="tab_cont">
+            <div class="itemlist_wrapper">
+                <% itemInfo_zero.forEach(function(el){ %>
+                    <ul class="item_wrapper">
+                        <li class="item_img"><img src="/images/itemlist/<%= el.imgUrl %>"></li>
+                        <li class="item_name"><%= el.name %> </li>
+                        <li class="item_price"><%= el.price %>원</li>
+                        <li class="item_disc"><%= el.disc %> </li>
+                    </ul>
+                <% }) %> 
+                <% itemInfo_zero.forEach(function(el){ %>
+                    <ul class="item_wrapper">
+                        <li class="item_img"><img src="/images/itemlist/<%= el.imgUrl %>"></li>
+                        <li class="item_name"><%= el.name %> </li>
+                        <li class="item_price"><%= el.price %>원</li>
+                        <li class="item_disc"><%= el.disc %> </li>
+                    </ul>
+                <% }) %> 
+                <% itemInfo_zero.forEach(function(el){ %>
+                    <ul class="item_wrapper">
+                        <li class="item_img"><img src="/images/itemlist/<%= el.imgUrl %>"></li>
+                        <li class="item_name"><%= el.name %> </li>
+                        <li class="item_price"><%= el.price %>원</li>
+                        <li class="item_disc"><%= el.disc %> </li>
+                    </ul>
+                <% }) %> 
+            </div>
+            <div class="itemlist_wrapper">
+                <% itemInfo_upcycle.forEach(function(el){ %>
+                    <ul class="item_wrapper">
+                        <li class="item_img"><img src="/images/itemlist/<%= el.imgUrl %>"></li>
+                        <li class="item_name"><%= el.name %> </li>
+                        <li class="item_price"><%= el.price %>원</li>
+                        <li class="item_disc"><%= el.disc %> </li>
+                    </ul>
+                <% }) %> 
+                <% itemInfo_upcycle.forEach(function(el){ %>
+                    <ul class="item_wrapper">
+                        <li class="item_img"><img src="/images/itemlist/<%= el.imgUrl %>"></li>
+                        <li class="item_name"><%= el.name %> </li>
+                        <li class="item_price"><%= el.price %>원</li>
+                        <li class="item_disc"><%= el.disc %> </li>
+                    </ul>
+                <% }) %> 
+                <% itemInfo_upcycle.forEach(function(el){ %>
+                    <ul class="item_wrapper">
+                        <li class="item_img"><img src="/images/itemlist/<%= el.imgUrl %>"></li>
+                        <li class="item_name"><%= el.name %> </li>
+                        <li class="item_price"><%= el.price %>원</li>
+                        <li class="item_disc"><%= el.disc %> </li>
+                    </ul>
+                <% }) %> 
+            </div>
+            <div class="itemlist_wrapper">
+                <% itemInfo_bio.forEach(function(el){ %>
+                    <ul class="item_wrapper">
+                        <li class="item_img"><img src="/images/itemlist/<%= el.imgUrl %>"></li>
+                        <li class="item_name"><%= el.name %> </li>
+                        <li class="item_price"><%= el.price %>원</li>
+                        <li class="item_disc"><%= el.disc %> </li>
+                    </ul>
+                <% }) %> 
+                <% itemInfo_bio.forEach(function(el){ %>
+                    <ul class="item_wrapper">
+                        <li class="item_img"><img src="/images/itemlist/<%= el.imgUrl %>"></li>
+                        <li class="item_name"><%= el.name %> </li>
+                        <li class="item_price"><%= el.price %>원</li>
+                        <li class="item_disc"><%= el.disc %> </li>
+                    </ul>
+                <% }) %> 
+                <% itemInfo_bio.forEach(function(el){ %>
+                    <ul class="item_wrapper">
+                        <li class="item_img"><img src="/images/itemlist/<%= el.imgUrl %>"></li>
+                        <li class="item_name"><%= el.name %> </li>
+                        <li class="item_price"><%= el.price %>원</li>
+                        <li class="item_disc"><%= el.disc %> </li>
+                    </ul>
+                <% }) %> 
+            </div>
+        </div>
     </div>
+    <script src="/javascripts/itemlist.js"></script>
 </body>
 </html>

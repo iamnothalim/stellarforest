@@ -11,8 +11,11 @@ router.use(session);
 router.get('/', async function (req, res) {
     try {
         const conn = await pool.getConnection();
-        const itemInfo = await conn.query('select * from Products');
-        res.render('./shop/itemlist',{itemInfo});
+        const itemInfo_zero = await conn.query('select * from Products where category = ?',['zero']);
+        const itemInfo_upcycle = await conn.query('select * from Products where category = ?',['upcycle']);
+        const itemInfo_bio = await conn.query('select * from Products where category = ?',['bio']);
+        conn.release();
+        res.render('./shop/itemlist',{itemInfo_zero, itemInfo_upcycle, itemInfo_bio});
     } catch (e) {
         console.log(e.message);
     }
