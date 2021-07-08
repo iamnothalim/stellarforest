@@ -6,7 +6,7 @@ const pool = require('../lib/mariadb');
 const request =require("request-promise-native");
 const dotenv = require('dotenv');
 dotenv.config();
-//
+//HashRoot 지갑 환경 변수 설정
 const USER = process.env.RPC_USER;
 const PASS = process.env.RPC_PASSWORD;
 //const PORT = 9708; // hashroot
@@ -41,93 +41,67 @@ router.get('/', async function (req, res) {
 router.post('/', async function(req,res){
     try{
         //변수 정의하기
-        console.log('지금 이 데이터가 들어온다!', req.body.user);
         const user = req.body.user;
-        console.log(user.length);
-        let address;
-        let dataString;
-        let options;
-        let result;
-        let data;
+        console.log('user', user);
+        const coord_x = req.body.coord_x;
+        const coord_y = req.body.coord_y;
+        //let address;
+        // let dataString;
+        // let options;
+        // let result;
+        // let data;
+        // let time;
+        // let conn;
+        // let current_seed;
+        // let change_seed;
+        // let whoPlant;
         for(let i = 0; i < user.length; i++){
-            address = user[i];
-            dataString = `{"jsonrpc":"1.0","id":"${ID_STRING}","method":"sendfrom","params":["jeje", "${address}", 10]}`;
-            options = {
+            //내가 선택한 유저들에게 지갑 주소로 10 hashroots 전송
+            if(typeof(user) == "string"){
+                const address = user;
+                console.log('address', address);
+            }else{
+                address = user[i];
+                console.log('address', address);
+            }
+            console.log('지금은 얘한테 보내줄 차례!',address);
+            const dataString = `{"jsonrpc":"1.0","id":"${ID_STRING}","method":"sendfrom","params":["jeje", "${address}", 10]}`;
+            const options = {
                 url: `http://${USER}:${PASS}@127.0.0.1:${PORT}/`,
                 method: "POST",
                 headers: headers,
                 body: dataString
             };
-        result = await request(options);
-        data = await JSON.parse(result);
+            //결과 넘겨줘서 json 데이터 해석
+            const result = await request(options);
+            console.log('result', result);
+            const data = await JSON.parse(result);
+
+            //5000 seeds 차감
+            const conn = await pool.getConnection();
+            const current_seed = await conn.query('SELECT seed FROM Users WHERE address = ?', [address]);
+            
+            console.log('current_seed', current_seed);
+            const change_seed = current_seed[0].seed - 5000;
+            console.log('change_seed', change_seed);
+            await conn.query('Update Users SET seed = ? WHERE address = ?', [change_seed, address]);
+            
+            //userId, txid, coords 저장
+            const whoPlant = await conn.query('SELECT userId FROM Users WHERE address = ?', [address]);
+            
+            console.log('data', typeof(data.result));
+            const time = Date.now();
+            console.log(time);
+            console.log('시간!', typeof(time));
+            console.log('좌표!', typeof(coord_x));
+            await conn.query('INSERT INTO TreeInfo(userId, txid, coord_x, coord_y, time) VALUES (?,?,?,?,?)', [whoPlant[0].userId, data.result, coord_x, coord_y, time]);
+            
         }
-        //console.log('이 사람 아이디입니다.', userId);
-        //console.log('이 사람 계좌입니다.', address);
-        //지갑 연동
-        // const dataString = `{"jsonrpc":"1.0","id":"${ID_STRING}","method":"sendfrom","params":["jeje", "${address}", 10]}`;
-        // const options = {
-        //     url: `http://${USER}:${PASS}@127.0.0.1:${PORT}/`,
-        //     method: "POST",
-        //     headers: headers,
-        //     body: dataString
-        // };
-        // //지갑 콘솔 찍고 데이터 넘겨주기
-        // const result = await request(options);
-        // const data = await JSON.parse(result);
-        // //5000 seeds 차감 
-        // const conn = await pool.getConnection();
-        // const current_seed = await conn.query('SELECT seed FROM Users WHERE address = ?', [address]);
-        // console.log('current_seed', current_seed);
-        // const change_seed = current_seed[0].seed - 5000;
-        // console.log('change_seed', change_seed);
-        // await conn.query('Update Users SET seed = ? WHERE address = ?', [change_seed, address]);
-        // //userId 추가
-        // const whoPlant = await conn.query('SELECT userId FROM Users WHERE address = ?', [address]);
-        // await conn.query('INSERT INTO TreeInfo(txid, userId) VALUES (?, ?)', [data.result, whoPlant[0].userId]);
-        // conn.release();
-        // res.redirect('/admin');
+        res.redirect('/admin');
+        conn.release();
     }catch(e){
         console.log(e.message);
     }
 });
-
-// router.get('/:id', async function(req,res){
-//     try{
-//         const dataString = `{"jsonrpc":"1.0","id":"${ID_STRING}","method":"sendfrom","params":["jeje", "${address}", 10]}`;
-//         const options = {
-//             url: `http://${USER}:${PASS}@127.0.0.1:${PORT}/`,
-//             method: "POST",
-//             headers: headers,
-//             body: dataString
-//         };
-//         console.log('이 사람 계좌입니다.', address);
-//         const result = await request(options);
-//         const data = await JSON.parse(result);
-//         DB에서 seed-5000
-//         const conn = await pool.getConnection();
-//         const current_seed = await conn.query('SELECT seed FROM Users WHERE address = ?', [address]);
-//         console.log("current_seed",current_seed[0].seed);
-//         const change_seed = current_seed[0].seed- 5000;
-//         console.log(change_seed);
-//         await conn.query('Update Users SET seed = ? WHERE address = ?', [change_seed ,address]);
-//         const whoPlant = await conn.query('SELECT userId FROM Users WHERE address = ?', [address]);
-//         await conn.query('INSERT INTO TreeInfo(txid, userId) VALUES (?, ?)', [data.result, whoPlant[0].userId]);
-//         conn.release();
-//         res.redirect('/admin');
-//     }catch(e){
-//         console.log(e);
-//     }
-// });
-
-// router.post('/coord', async function (req,res){
-//     console.log('ajax 호출');
-//     console.log(req.body);
-//     const coord_x = req.body.xposition;
-//     const coord_y = req.body.yposition;
-//     console.log('coord_x', coord_x, 'coord_y', coord_y);
-//     const conn = await pool.getConnection();
-//     await conn.query('INSERT INTO TreeInfo(coord_x, coord_y) VALUES (?, ?)', [coord_x, coord_y]);
-//     res.redirect('/map');
-// });
 
 module.exports = router;
