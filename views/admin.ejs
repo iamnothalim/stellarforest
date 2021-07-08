@@ -4,8 +4,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>admin</title>
+    <script type="text/javascript" src="/javascripts/jquery-3.5.1.min.js"></script>
 </head>
 <body>
-    <div><%= data %> </div>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ebc352988eab997a3fb332f391cfd7f9"></script>
+
+    <div>seed 5000 전환하기</div>
+    <form method = "POST" action = "/admin">
+        <div id="map" style="width:100%;height:350px;"></div>
+        <p><em>지도를 클릭해주세요!</em></p>
+        <!-- <p id="result"></p> -->
+        
+        <p>coord_x</p><input id="coord_x" name = "coord_x" type="number" step = "0.0000000000000001" readonly>
+        <p>coord_y</p><input id="coord_y" name = "coord_y" type="number" step = "0.0000000000000001" readonly>
+        <% if(data.length != 0){ %>
+            <% data.forEach((item, index)=>{ %>
+                <li style="list-style: none;"><%= item.userId %> <%= item.seed %> <%= item.name %><input id = "user" type="checkbox" name = "user" value = <%= item.address %> ></li>
+                <!-- <a href="/admin/<%= //item.address %>"></a> -->
+            <% }) %>
+        <% } %>
+        <!-- <div>채굴 버튼</div>
+        <a href="/admin/generate"><input class = "generate" type="button" value = "50 STW 채굴하기"></a> -->
+        <input type="submit" value = "지금 보내버려!">
+    </form>
+    
+   <script type = "text/javascript" src="/javascripts/admin.js"></script>
+
 </body>
 </html>

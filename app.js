@@ -7,7 +7,8 @@ const logger = require('morgan');
 const indexRouter = require('./routes/index');
 const authRouter = require('./routes/auth');
 const myforestRouter = require('./routes/myforest');
-const rpcMethods_admin = require('./routes/admin');
+const adminRouter = require('./routes/admin');
+const mapRouter = require('./routes/map');
 
 const app = express();
 
@@ -24,7 +25,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/auth', authRouter);
 app.use('/myforest', myforestRouter);
-app.use('/admin', rpcMethods_admin);
+app.use('/admin', adminRouter);
+app.use('/map', mapRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
