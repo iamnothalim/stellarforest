@@ -63,8 +63,15 @@ router.get("/mytree", async function (req, res) {
     const mytransaction = data2.result;
     console.log("배열길이",myblock);
 
+    const conn = await pool.getConnection();
+    const treecoord = await conn.query('select * from TreeInfo where userId= ?',[user] )
+    console.log('틀정보',treecoord[0].time);
+    const treecoordX = treecoord[0].coord_x;
+    const treecoordY = treecoord[0].coord_y;
+    const treetime = treecoord[0].time
+    const datetreetime = new Date(treetime*1000)
       /////////////////////////////////////////////
-    res.render("mytree", { blockcount, myblock, mytransaction });
+    res.render("mytree", { blockcount, myblock, mytransaction, treecoordX, treecoordY, datetreetime });
 
   } catch (e) {
     console.log(e.message);

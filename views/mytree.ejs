@@ -29,8 +29,8 @@
             <div class="totaltree">총 나무 <%= blockcount %>그루 </div>
             <!-- <div>전체"나무는 -> 추후에 listtransaction treecount로 변경예정 </div> -->
             <div class="myaccounttree"> 나의 지분이 있는 나무: <%= myblock %> 그루 </div>
-            <!-- <div> 나무가 심어진 시간 </div>
-            <div> 나무가 있는 위치 </div> -->
+            <div> 나무가 심어진 시간   <%= datetreetime %></div>
+            <div> 나무가 있는 위치 (<%= treecoordX %>,<%= treecoordY %>)</div>
             <div class="mytreehash"> 내가 보유한 나무 블록의 해시값:</div>
             <% mytransaction.forEach((hash,index)=> { %>
                 <div>
