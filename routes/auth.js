@@ -40,15 +40,18 @@ router.post('/login', async function (req, res) {
         const conn = await pool.getConnection();
         const idinfo = await conn.query('select * from Users where userId =?',[req.body.userId]);
         if(idinfo[0]==undefined){
+            conn.release();
             res.send('<script>alert("존재하지 않은 아이디입니다.");history.back();</script>');
         }else{
             if(idinfo[0].password !== password){
+                conn.release();
                 res.send('<script>alert("비밀번호가 틀렸습니다.");history.back();</script>');
             }else{
                 req.session.loggedin = true;
                 req.session.userid = req.body.userId;
                 req.session.save(()=>{
-                    res.redirect('/');
+                    conn.release();
+                    res.redirect('/')
                 })
             }
         }
@@ -93,6 +96,7 @@ router.post('/register',async function(req,res){
         const address = await data.result;
         const conn = await pool.getConnection();
         conn.query('insert into Users (userId,password,name,address) values (?,?,?,?)',[req.body.userId, password, req.body.name, address]);
+        conn.release();
         res.send('<script>alert("회원가입이 완료되었습니다!");location.href="/auth/register_complete";</script>');
     } catch (e) {
         console.log(e.message);
