@@ -16,20 +16,12 @@ kakao.maps.event.addListener(map, 'click', function (mouseEvent) {
     const xposition = latlng.getLat();
     const yposition = latlng.getLng();
 
-    // console.log('위도', latlng.getLat());
-    // console.log('경도', latlng.getLat());
 
-    // const xCoordDiv = document.getElementById('coord_x');
-    // const yCoordDiv = document.getElementById('coord_y');
-
-    // xCoordDiv.innerHTML = xposition;
-    // xCoordDiv.innerHTML = xposition;
 
     $('#coord_x').val(xposition);
     $('#coord_y').val(yposition);
 
-    //var resultDiv = document.getElementById('result');
-    //resultDiv.innerHTML = message;
+   
 });
 
 // $("#").click(function(){
@@ -42,6 +34,5 @@ kakao.maps.event.addListener(map, 'click', function (mouseEvent) {
 //     })
 // })
 
-// const userId = $('input').attr('value1');
-// const address = $('input').attr('value2');
+
 

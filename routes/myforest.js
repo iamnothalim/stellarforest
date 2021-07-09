@@ -78,6 +78,20 @@ router.get("/mytree", async function (req, res) {
   }
 });
 
+router.post("/mytree", async function (req, res){
+  try {
+    console.log("ajax호출!!")
+    const conn = await pool.getConnection();
+    const user =req.session.userid
+    const treecoord = await conn.query('select * from TreeInfo where userId= ?',[user] )
+    console.log('틀정보',treecoord[0].time);
+    const treecoordX = treecoord[0].coord_x;
+    const treecoordY = treecoord[0].coord_y;
+    res.send({treecoordX, treecoordY})
+  } catch (e) {
+    console.log(e.message);
+  }
+})
 
 ////////////////////내정보///////////////////////////////
 router.get("/myinfo", async function (req, res) {
