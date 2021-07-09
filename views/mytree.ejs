@@ -11,6 +11,8 @@
 </head>
 
 <body>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ebc352988eab997a3fb332f391cfd7f9"></script>
+
     <header>
         <img class="logo" src="/img/별숲1.png">
         <div class="icon">돋보기</div>
@@ -31,6 +33,12 @@
             <div class="myaccounttree"> 나의 지분이 있는 나무: <%= myblock %> 그루 </div>
             <div> 나무가 심어진 시간   <%= datetreetime %></div>
             <div> 나무가 있는 위치 (<%= treecoordX %>,<%= treecoordY %>)</div>
+            <div><%= treecoordX %></div>
+            <div><%= treecoordY %></div>
+            
+            <div id="map" style="width:200px; height:200px; "></div>
+
+
             <div class="mytreehash"> 내가 보유한 나무 블록의 해시값:</div>
             <% mytransaction.forEach((hash,index)=> { %>
                 <div>
@@ -39,11 +47,12 @@
                 <% })%>
             <!-- <div>같은블록에 어차피 하나의 트랜잭션만 들어갈것이기 때문에 상관없음 </div> -->
         </div>
+        <
     </div>
 
 
 
-
+    <script src="/javascripts/mytree.js"></script>
 
 </body>
 
