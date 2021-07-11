@@ -11,7 +11,6 @@
 </head>
 
 <body>
-    <p>Gallery</p>
     <div class="stage">
         <div class="container">
             <div class="title">
@@ -19,47 +18,44 @@
             </div>
             <!-- 5번째 부터 1,2,3... -->
             <div class="ring">
-                <% for (let i = 5; i < 10; i++) { %>
+                <% for (let i=5; i < 10; i++) { %>
                     <div class="img">
                         <div class="contents">
                             <p class="prize">
                                 <%= i+1 %>등
                             </p>
                             <p class="userid">
-                                <%= topTenUserIds[i].userid %>님 
+                                <%= topTenUserIds[i].userid %>님
                             </p>
                             <p class="trees">
                                 보유한 나무: <%= topTenUserIds[i].tree %>그루
                             </p>
                         </div>
                     </div>
-                <% } %> 
-                <% for (let i = 0; i < 5; i++) { %>
-                    <div class="img">
-                        <div class="contents">
-                            <p class="prize">
-                                <%= i+1 %>등
-                            </p>
-                            <p class="userid">
-                                <%= topTenUserIds[i].userid %>님 
-                            </p>
-                            <p class="trees">
-                                보유한 나무: <%= topTenUserIds[i].tree %>그루
-                            </p>
-                        </div>
-                    </div>
-                <% } %> 
+                    <% } %>
+                        <% for (let i=0; i < 5; i++) { %>
+                            <div class="img">
+                                <div class="contents">
+                                    <p class="prize">
+                                        <%= i+1 %>등
+                                    </p>
+                                    <p class="userid">
+                                        <%= topTenUserIds[i].userid %>님
+                                    </p>
+                                    <p class="trees">
+                                        보유한 나무: <%= topTenUserIds[i].tree %>그루
+                                    </p>
+                                </div>
+                            </div>
+                            <% } %>
             </div>
         </div>
     </div>
     <!-- Gsap Library -->
-    <script 
-        src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.0/gsap.min.js"
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.0/gsap.min.js"
         integrity="sha512-2fk3Q4NXPYAqIha0glLZ2nluueK43aNoxvijPf53+DgL7UW9mkN+uXc1aEmnZdkkZVvtJZltpRt+JqTWc3TS3Q=="
-        crossorigin="anonymous" 
-        referrerpolicy="no-referrer"
-    >
-    </script>
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+        </script>
     <script src="/javascripts/gallery.js"></script>
 </body>
 
