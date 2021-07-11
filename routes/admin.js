@@ -45,16 +45,6 @@ router.post('/', async function(req,res){
         console.log('user', user);
         const coord_x = req.body.coord_x;
         const coord_y = req.body.coord_y;
-        //let address;
-        // let dataString;
-        // let options;
-        // let result;
-        // let data;
-        // let time;
-        // let conn;
-        // let current_seed;
-        // let change_seed;
-        // let whoPlant;
         for(let i = 0; i < user.length; i++){
             //내가 선택한 유저들에게 지갑 주소로 10 hashroots 전송
             if(typeof(user) == "string"){

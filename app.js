@@ -8,7 +8,6 @@ const indexRouter = require('./routes/index');
 const authRouter = require('./routes/auth');
 const myforestRouter = require('./routes/myforest');
 const adminRouter = require('./routes/admin');
-const mapRouter = require('./routes/map');
 const shopRouter = require('./routes/shop');
 const galleryRouter = require('./routes/gallery');
 
@@ -28,7 +27,6 @@ app.use('/', indexRouter);
 app.use('/auth', authRouter);
 app.use('/myforest', myforestRouter);
 app.use('/admin', adminRouter);
-app.use('/map', mapRouter);
 app.use('/shop', shopRouter);
 app.use('/gallery', galleryRouter);
 
