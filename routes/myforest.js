@@ -71,7 +71,7 @@ router.get("/mytree", async function (req, res) {
     const treetime = treecoord[0].time
     const datetreetime = new Date(treetime*1000)
       /////////////////////////////////////////////
-    res.render("mytree", { blockcount, myblock, mytransaction, treecoordX, treecoordY, datetreetime });
+    res.render("mytree", { blockcount, myblock, mytransaction, treecoordX, treecoordY, datetreetime,user });
 
   } catch (e) {
     console.log(e.message);
