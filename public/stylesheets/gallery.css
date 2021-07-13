@@ -5,14 +5,12 @@ html, body, .stage, .ring, .img {
     user-select:none;
 }
 
-html, body, .stage {
-    overflow:hidden;
-    background:rgb(255, 255, 255);
-}
 
-div, svg {
+
+div {
     position: absolute;
 }
+
 
 .container {
     perspective: 2000px;

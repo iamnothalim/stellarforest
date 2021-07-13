@@ -18,7 +18,7 @@
     <header id="header">
         <div class="header_inner">
             <div class="header_logo">
-                <a href="/index"><img src="/images/logo/logo_transparent.png" alt="logo"></a>
+                <a href="/"><img src="/images/logo/logo_transparent.png" alt="logo"></a>
             </div>
             <div class="header_select">
                 <div class="header_select_symbol">
@@ -27,9 +27,15 @@
                 <div class="header_select_symbol">
                    <a href="#"><img src="/images/symbol/shopping-cart.png" alt="basket"></a>
                 </div>
-                <div class="header_select_symbol">
+                <% if(user==undefined) {%>
+                  <div class="header_select_symbol">
                     <a href="/auth"><img src="/images/symbol/user.png" alt="my_page"></a>
                 </div>
+                <% }else{ %> 
+                  <div class="header_select_symbol">
+                    <a href="/myforest"><img src="/images/symbol/logineduser.png" alt="my_page"></a>
+                </div>
+                <% } %> 
             </div>
         </div>
         <div class="menu">
@@ -38,14 +44,20 @@
               <a href="#"><p>소개</p></a>
             </div>
             <div class="categories">
-                <a href="#"><p>제품</p></a>
+                <a href="/shop"><p>제품</p></a>
             </div>
             <div class="categories">
                 <a href="/gallery"><p>갤러리</p></a>
             </div>
-            <div class="categories">
-                <a href="/myforest"><p>별숲</p></a>
+            <% if(user==undefined){ %> 
+              <div class="categories">
+                <a href="/auth"><p>별숲</p></a>
             </div>
+              <% }else{ %> 
+                <div class="categories">
+                    <a href="/myforest"><p>별숲</p></a>
+                </div>
+                <% } %> 
           
         </div>
     </header>

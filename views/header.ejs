@@ -1,0 +1,103 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* /////////////////////////////////////////// */
+        #header {
+            top: 0;
+            left: 0;
+            position: relative;
+            width: 100%;
+            height: 140px;
+            box-sizing: border-box;
+            /* z-index: 1000; */
+            font-size: 0;
+            background-color: white;
+            padding-bottom: 162px;
+            /* border: 1px solid red; */
+            text-align: center;
+        }
+
+        .header_inner {
+            width: 100%;
+            text-align: center;
+            display: inline-block;
+
+            /* border: 1px solid green; */
+        }
+
+        .header_logo {
+            display: inline;
+            vertical-align: middle;
+            margin-right: 300px;
+
+            /* border: 1px solid blue; */
+
+        }
+
+        .header_logo img {
+            width: 350px;
+
+        }
+
+        .header_select {
+
+            position: relative;
+            margin: 0 auto;
+            display: inline-block;
+            vertical-align: middle;
+            margin-left: 10px;
+
+            /* border: 1px solid yellow; */
+        }
+
+        .header_select_symbol {
+            padding: 0 18px;
+            margin-top: 20px;
+            display: inline-block;
+        }
+
+      
+
+        /* ///////////////////////////////////////// */
+    </style>
+</head>
+
+<body>
+    <header id="header">
+        <dd class="header_inner">
+        <dd class="header_logo">
+            <a href="/"><img src="/images/logo/logo_transparent.png" alt="logo"></a>
+        </dd>
+        <dd class="header_select">
+        <dd class="header_select_symbol">
+            <a href="#"><img src="/images/symbol/search_symbol.png" alt="search"></a>
+        </dd>
+        <dd class="header_select_symbol">
+            <a href="#"><img src="/images/symbol/shopping-cart.png" alt="basket"></a>
+        </dd>
+
+        <% if(user==undefined) {%>
+            <dd class="header_select_symbol">
+              <a href="/auth"><img src="/images/symbol/user.png" alt="my_page"></a>
+          </dd>
+          <% }else{ %> 
+            <dd class="header_select_symbol">
+              <a href="/myforest"><img src="/images/symbol/logineduser.png" alt="my_page"></a>
+          </dd>
+          <% } %> 
+
+
+        </dd>
+        </dd>
+
+    
+    </header>
+   
+</body>
+
+</html>
